@@ -13,6 +13,15 @@
 		E33D510627EDAB18005A5379 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33D50F427EDAB18005A5379 /* ContentView.swift */; };
 		E33D510727EDAB18005A5379 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E33D50F527EDAB18005A5379 /* Assets.xcassets */; };
 		E33D510827EDAB18005A5379 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E33D50F527EDAB18005A5379 /* Assets.xcassets */; };
+		E3B9234827F18B820098FAED /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E3B9234727F18B820098FAED /* Alamofire */; };
+		E3B9234A27F190300098FAED /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B9234927F190300098FAED /* LoginViewModel.swift */; };
+		E3B9234B27F190300098FAED /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B9234927F190300098FAED /* LoginViewModel.swift */; };
+		E3B9234D27F191020098FAED /* HyperClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B9234C27F191020098FAED /* HyperClient.swift */; };
+		E3B9234E27F191020098FAED /* HyperClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B9234C27F191020098FAED /* HyperClient.swift */; };
+		E3B9235327F192060098FAED /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B9235227F192060098FAED /* LoginView.swift */; };
+		E3B9235427F192060098FAED /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B9235227F192060098FAED /* LoginView.swift */; };
+		E3B9235627F19D250098FAED /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B9235527F19D250098FAED /* Authentication.swift */; };
+		E3B9235727F19D250098FAED /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B9235527F19D250098FAED /* Authentication.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +31,10 @@
 		E33D50FA27EDAB18005A5379 /* HyperClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HyperClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E33D510027EDAB18005A5379 /* HyperClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HyperClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E33D510227EDAB18005A5379 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		E3B9234927F190300098FAED /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		E3B9234C27F191020098FAED /* HyperClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HyperClient.swift; sourceTree = "<group>"; };
+		E3B9235227F192060098FAED /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		E3B9235527F19D250098FAED /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3B9234827F18B820098FAED /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,7 +70,11 @@
 			children = (
 				E33D50F327EDAB18005A5379 /* HyperClientApp.swift */,
 				E33D50F427EDAB18005A5379 /* ContentView.swift */,
+				E3B9235227F192060098FAED /* LoginView.swift */,
 				E33D50F527EDAB18005A5379 /* Assets.xcassets */,
+				E3B9234927F190300098FAED /* LoginViewModel.swift */,
+				E3B9234C27F191020098FAED /* HyperClient.swift */,
+				E3B9235527F19D250098FAED /* Authentication.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -94,6 +112,9 @@
 			dependencies = (
 			);
 			name = "HyperClient (iOS)";
+			packageProductDependencies = (
+				E3B9234727F18B820098FAED /* Alamofire */,
+			);
 			productName = "HyperClient (iOS)";
 			productReference = E33D50FA27EDAB18005A5379 /* HyperClient.app */;
 			productType = "com.apple.product-type.application";
@@ -142,6 +163,9 @@
 				Base,
 			);
 			mainGroup = E33D50ED27EDAB17005A5379;
+			packageReferences = (
+				E3B9234627F18B820098FAED /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = E33D50FB27EDAB18005A5379 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -178,6 +202,10 @@
 			files = (
 				E33D510527EDAB18005A5379 /* ContentView.swift in Sources */,
 				E33D510327EDAB18005A5379 /* HyperClientApp.swift in Sources */,
+				E3B9234A27F190300098FAED /* LoginViewModel.swift in Sources */,
+				E3B9235327F192060098FAED /* LoginView.swift in Sources */,
+				E3B9234D27F191020098FAED /* HyperClient.swift in Sources */,
+				E3B9235627F19D250098FAED /* Authentication.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,6 +215,10 @@
 			files = (
 				E33D510627EDAB18005A5379 /* ContentView.swift in Sources */,
 				E33D510427EDAB18005A5379 /* HyperClientApp.swift in Sources */,
+				E3B9234B27F190300098FAED /* LoginViewModel.swift in Sources */,
+				E3B9235427F192060098FAED /* LoginView.swift in Sources */,
+				E3B9234E27F191020098FAED /* HyperClient.swift in Sources */,
+				E3B9235727F19D250098FAED /* Authentication.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,6 +344,7 @@
 				DEVELOPMENT_TEAM = ZRZ8BS7EUF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "使用Face ID进行登录";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -342,6 +375,7 @@
 				DEVELOPMENT_TEAM = ZRZ8BS7EUF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "使用Face ID进行登录";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -450,6 +484,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E3B9234627F18B820098FAED /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E3B9234727F18B820098FAED /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E3B9234627F18B820098FAED /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E33D50EE27EDAB18005A5379 /* Project object */;
 }

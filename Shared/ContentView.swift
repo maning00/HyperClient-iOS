@@ -8,9 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var authentication: Authentication
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        NavigationView {
+            VStack {
+                Text("Authorized!")
+                Button("注销") {
+                    authentication.updateValidation(success: false)
+                }
+            }
+        }
     }
 }
 
