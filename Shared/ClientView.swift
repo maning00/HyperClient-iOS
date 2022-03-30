@@ -13,10 +13,15 @@ struct ContentView: View {
         NavigationView {
             VStack {
                 Text("Authorized!")
-                Button("注销") {
-                    authentication.updateValidation(success: false)
+                
+            }.navigationTitle(Text("主页"))
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button("注销") {
+                            authentication.updateValidation(success: false)
+                        }
+                    }
                 }
-            }
         }
     }
 }
@@ -24,5 +29,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .previewDevice("iPhone 13 Pro")
     }
 }

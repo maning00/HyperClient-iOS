@@ -25,6 +25,8 @@ struct LoginView: View {
             }
             Spacer()
             Button("登录") {
+                let data = Entry(name: "化学实验", timestamp: 1648114765, author: "maning", email: "yadcxx@gmail.com", institution: "HNU", environment: "30 - 40", parameters: "50, uf, dd, 70", details: "this is a test", attachment: "http", hash: "")
+                HyperClient.shared.insertData(data: data)
                 loginVM.login { success in
                     authentication.updateValidation(success: success)
                 }
