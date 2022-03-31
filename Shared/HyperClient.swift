@@ -12,9 +12,10 @@ import Logging
 
 let logger = Logger(label: "HyperClient")
 
-struct Entry: Codable {
+struct Entry: Codable, Hashable {
+    var id: UInt32
     var name: String
-    var timestamp: UInt32
+    var timestamp: Double
     var author: String
     var email: String
     var institution: String
@@ -32,14 +33,14 @@ struct Entry: Codable {
 }
 
 
-struct AuthenticResponse: Codable {
+struct AuthenticResponse: Codable, Hashable {
     let timestamp: String
     let item: String
     let proof: [String]
     let result: Bool
 }
 
-struct ResponsePair: Codable {
+struct ResponsePair: Codable, Hashable {
     let data: Entry
     let authentication: AuthenticResponse
 }
@@ -47,7 +48,6 @@ struct ResponsePair: Codable {
 struct HyperClient {
     static var shared = HyperClient()
     
-    var experimentalData = [ResponsePair]()
     
     public func login(credentials: Credentials, completion: @escaping (Result<Bool, Authentication.AuthenticationError>) -> Void) {
         AF.request("http://192.168.31.125:5000/api/v1/login", method: .post).validate().responseDecodable(of: [String:String].self) { response in
@@ -63,12 +63,12 @@ struct HyperClient {
     }
     
 
-    mutating func fetchData() {
+    public func fetchData() async -> [ResponsePair] {
         /**
          Request (3)
          post http://192.168.31.125:5000/api/v1/get_data
          */
-        var res = self
+        var experimentalData = [ResponsePair]()
         // Add Headers
         let headers: HTTPHeaders = [
             "Content-Type":"application/json; charset=utf-8"
@@ -80,21 +80,22 @@ struct HyperClient {
         ]
 
         // Fetch Request
-        AF.request("http://192.168.31.125:5000/api/v1/get_data", method: .post, parameters: body, encoding: JSONEncoding.default, headers: headers)
+        let dataTask = AF.request("http://192.168.31.125:5000/api/v1/get_data", method: .post, parameters: body, encoding: JSONEncoding.default, headers: headers)
             .validate(statusCode: 200..<300)
-            .responseDecodable(of: [ResponsePair].self) { response in
-                switch response.result {
-                case .success(let responsePairs):
-                    res.experimentalData.append(contentsOf: responsePairs)
-                case .failure(let error):
-                    logger.error("\(error.localizedDescription)")
-                }
-            }
+            .serializingDecodable([ResponsePair].self)
+        let response = await dataTask.response.result
+        switch response {
+            case .success(let responsePairs):
+                experimentalData.append(contentsOf: responsePairs)
+            case .failure(let error):
+                logger.error("\(error.localizedDescription)")
+            
+        }
         
-        self = res
+        return experimentalData
     }
     
-    mutating func insertData(data: Entry) {
+    public func insertData(data: Entry) {
         // Add Headers
         let headers: HTTPHeaders = [
             "Content-Type":"application/json; charset=utf-8",

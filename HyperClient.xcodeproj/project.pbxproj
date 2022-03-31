@@ -13,17 +13,15 @@
 		E33D510627EDAB18005A5379 /* ClientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33D50F427EDAB18005A5379 /* ClientView.swift */; };
 		E33D510727EDAB18005A5379 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E33D50F527EDAB18005A5379 /* Assets.xcassets */; };
 		E33D510827EDAB18005A5379 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E33D50F527EDAB18005A5379 /* Assets.xcassets */; };
+		E364C80327F5549900CF1B74 /* CreateEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E364C80227F5549900CF1B74 /* CreateEntryView.swift */; };
+		E364C80427F5549900CF1B74 /* CreateEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E364C80227F5549900CF1B74 /* CreateEntryView.swift */; };
 		E368D04827F3265600D2CD46 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = E368D04727F3265600D2CD46 /* Utility.swift */; };
 		E368D04927F3265600D2CD46 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = E368D04727F3265600D2CD46 /* Utility.swift */; };
 		E368D04C27F33EFF00D2CD46 /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = E368D04B27F33EFF00D2CD46 /* Logging */; };
 		E368D04E27F3525C00D2CD46 /* ClientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E368D04D27F3525C00D2CD46 /* ClientViewModel.swift */; };
 		E368D04F27F3525C00D2CD46 /* ClientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E368D04D27F3525C00D2CD46 /* ClientViewModel.swift */; };
-		E368D05227F3F53A00D2CD46 /* SherlockDebugForms in Frameworks */ = {isa = PBXBuildFile; productRef = E368D05127F3F53A00D2CD46 /* SherlockDebugForms */; };
-		E368D05427F3F53A00D2CD46 /* SherlockForms in Frameworks */ = {isa = PBXBuildFile; productRef = E368D05327F3F53A00D2CD46 /* SherlockForms */; };
-		E368D05627F3F53A00D2CD46 /* SherlockHUD in Frameworks */ = {isa = PBXBuildFile; productRef = E368D05527F3F53A00D2CD46 /* SherlockHUD */; };
+		E368D05C27F45A6100D2CD46 /* DataDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E368D05B27F45A6100D2CD46 /* DataDetailView.swift */; };
 		E3B9234827F18B820098FAED /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E3B9234727F18B820098FAED /* Alamofire */; };
-		E3B9234A27F190300098FAED /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B9234927F190300098FAED /* LoginViewModel.swift */; };
-		E3B9234B27F190300098FAED /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B9234927F190300098FAED /* LoginViewModel.swift */; };
 		E3B9234D27F191020098FAED /* HyperClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B9234C27F191020098FAED /* HyperClient.swift */; };
 		E3B9234E27F191020098FAED /* HyperClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B9234C27F191020098FAED /* HyperClient.swift */; };
 		E3B9235327F192060098FAED /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B9235227F192060098FAED /* LoginView.swift */; };
@@ -38,10 +36,10 @@
 		E33D50F527EDAB18005A5379 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E33D50FA27EDAB18005A5379 /* HyperClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HyperClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E33D510027EDAB18005A5379 /* HyperClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HyperClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E33D510227EDAB18005A5379 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		E364C80227F5549900CF1B74 /* CreateEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEntryView.swift; sourceTree = "<group>"; };
 		E368D04727F3265600D2CD46 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		E368D04D27F3525C00D2CD46 /* ClientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientViewModel.swift; sourceTree = "<group>"; };
-		E3B9234927F190300098FAED /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		E368D05B27F45A6100D2CD46 /* DataDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDetailView.swift; sourceTree = "<group>"; };
 		E3B9234C27F191020098FAED /* HyperClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HyperClient.swift; sourceTree = "<group>"; };
 		E3B9235227F192060098FAED /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		E3B9235527F19D250098FAED /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
@@ -54,9 +52,6 @@
 			files = (
 				E368D04C27F33EFF00D2CD46 /* Logging in Frameworks */,
 				E3B9234827F18B820098FAED /* Alamofire in Frameworks */,
-				E368D05627F3F53A00D2CD46 /* SherlockHUD in Frameworks */,
-				E368D05227F3F53A00D2CD46 /* SherlockDebugForms in Frameworks */,
-				E368D05427F3F53A00D2CD46 /* SherlockForms in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,7 +69,6 @@
 			isa = PBXGroup;
 			children = (
 				E33D50F227EDAB18005A5379 /* Shared */,
-				E33D510127EDAB18005A5379 /* macOS */,
 				E33D50FB27EDAB18005A5379 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -84,10 +78,11 @@
 			children = (
 				E33D50F327EDAB18005A5379 /* HyperClientApp.swift */,
 				E33D50F427EDAB18005A5379 /* ClientView.swift */,
+				E364C80227F5549900CF1B74 /* CreateEntryView.swift */,
+				E368D05B27F45A6100D2CD46 /* DataDetailView.swift */,
 				E368D04D27F3525C00D2CD46 /* ClientViewModel.swift */,
 				E3B9235227F192060098FAED /* LoginView.swift */,
 				E33D50F527EDAB18005A5379 /* Assets.xcassets */,
-				E3B9234927F190300098FAED /* LoginViewModel.swift */,
 				E3B9234C27F191020098FAED /* HyperClient.swift */,
 				E3B9235527F19D250098FAED /* Authentication.swift */,
 				E368D04727F3265600D2CD46 /* Utility.swift */,
@@ -102,14 +97,6 @@
 				E33D510027EDAB18005A5379 /* HyperClient.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		E33D510127EDAB18005A5379 /* macOS */ = {
-			isa = PBXGroup;
-			children = (
-				E33D510227EDAB18005A5379 /* macOS.entitlements */,
-			);
-			path = macOS;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -131,9 +118,6 @@
 			packageProductDependencies = (
 				E3B9234727F18B820098FAED /* Alamofire */,
 				E368D04B27F33EFF00D2CD46 /* Logging */,
-				E368D05127F3F53A00D2CD46 /* SherlockDebugForms */,
-				E368D05327F3F53A00D2CD46 /* SherlockForms */,
-				E368D05527F3F53A00D2CD46 /* SherlockHUD */,
 			);
 			productName = "HyperClient (iOS)";
 			productReference = E33D50FA27EDAB18005A5379 /* HyperClient.app */;
@@ -186,7 +170,6 @@
 			packageReferences = (
 				E3B9234627F18B820098FAED /* XCRemoteSwiftPackageReference "Alamofire" */,
 				E368D04A27F33EFF00D2CD46 /* XCRemoteSwiftPackageReference "swift-log" */,
-				E368D05027F3F53A00D2CD46 /* XCRemoteSwiftPackageReference "SherlockForms" */,
 			);
 			productRefGroup = E33D50FB27EDAB18005A5379 /* Products */;
 			projectDirPath = "";
@@ -226,10 +209,11 @@
 				E33D510527EDAB18005A5379 /* ClientView.swift in Sources */,
 				E33D510327EDAB18005A5379 /* HyperClientApp.swift in Sources */,
 				E368D04E27F3525C00D2CD46 /* ClientViewModel.swift in Sources */,
-				E3B9234A27F190300098FAED /* LoginViewModel.swift in Sources */,
 				E3B9235327F192060098FAED /* LoginView.swift in Sources */,
+				E364C80327F5549900CF1B74 /* CreateEntryView.swift in Sources */,
 				E3B9234D27F191020098FAED /* HyperClient.swift in Sources */,
 				E3B9235627F19D250098FAED /* Authentication.swift in Sources */,
+				E368D05C27F45A6100D2CD46 /* DataDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,10 +222,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E368D04927F3265600D2CD46 /* Utility.swift in Sources */,
+				E364C80427F5549900CF1B74 /* CreateEntryView.swift in Sources */,
 				E33D510627EDAB18005A5379 /* ClientView.swift in Sources */,
 				E33D510427EDAB18005A5379 /* HyperClientApp.swift in Sources */,
 				E368D04F27F3525C00D2CD46 /* ClientViewModel.swift in Sources */,
-				E3B9234B27F190300098FAED /* LoginViewModel.swift in Sources */,
 				E3B9235427F192060098FAED /* LoginView.swift in Sources */,
 				E3B9234E27F191020098FAED /* HyperClient.swift in Sources */,
 				E3B9235727F19D250098FAED /* Authentication.swift in Sources */,
@@ -520,14 +504,6 @@
 				minimumVersion = 1.0.0;
 			};
 		};
-		E368D05027F3F53A00D2CD46 /* XCRemoteSwiftPackageReference "SherlockForms" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/inamiy/SherlockForms";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.1.0;
-			};
-		};
 		E3B9234627F18B820098FAED /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
@@ -543,21 +519,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E368D04A27F33EFF00D2CD46 /* XCRemoteSwiftPackageReference "swift-log" */;
 			productName = Logging;
-		};
-		E368D05127F3F53A00D2CD46 /* SherlockDebugForms */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E368D05027F3F53A00D2CD46 /* XCRemoteSwiftPackageReference "SherlockForms" */;
-			productName = SherlockDebugForms;
-		};
-		E368D05327F3F53A00D2CD46 /* SherlockForms */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E368D05027F3F53A00D2CD46 /* XCRemoteSwiftPackageReference "SherlockForms" */;
-			productName = SherlockForms;
-		};
-		E368D05527F3F53A00D2CD46 /* SherlockHUD */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E368D05027F3F53A00D2CD46 /* XCRemoteSwiftPackageReference "SherlockForms" */;
-			productName = SherlockHUD;
 		};
 		E3B9234727F18B820098FAED /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;

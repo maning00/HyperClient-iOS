@@ -10,13 +10,14 @@ import SwiftUI
 @main
 struct HyperClientApp: App {
     @StateObject var authentication = Authentication()
+    @StateObject var document = ClientViewModel()
     var body: some Scene {
         WindowGroup {
             if authentication.isValidated {
-                ContentView()
+                ContentView(document: document)
                     .environmentObject(authentication)
             } else {
-                LoginView()
+                LoginView(loginVM: document)
                     .environmentObject(authentication)
             }
         }

@@ -14,8 +14,11 @@ struct Credentials: Codable {
 }
 
 class Authentication: ObservableObject {
+    @Published var credentials = Credentials()
     @Published var isValidated = false
     @Published var isAuthorized = false
+    @Published var storeCredentialsNextTime = false
+    @Published var error: Authentication.AuthenticationError?
     
     enum BiometricType {
         case none
@@ -52,6 +55,28 @@ class Authentication: ObservableObject {
                 }
             }
         }
+    
+    func login(completion: @escaping (Bool) -> Void) {
+        HyperClient.shared.login(credentials: credentials) { [unowned self] result in
+            switch result {
+            case .success:
+                if storeCredentialsNextTime {
+                    do {
+                        let data = try JSONEncoder().encode(credentials)
+                        UserDefaults.standard.set(data, forKey: "Default")
+                    } catch {
+                        print("UserDefaults set failed: \(error.localizedDescription)")
+                    }
+                    storeCredentialsNextTime = false
+                }
+                completion(true)
+            case .failure(let authError):
+                credentials = Credentials()
+                error = authError
+                completion(false)
+            }
+        }
+    }
     
     func updateValidation(success: Bool) {
         withAnimation {
