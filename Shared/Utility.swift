@@ -38,7 +38,7 @@ extension Encodable {
     }
 }
 
-func hash_func(x: String, y: String) -> String{
+func hashFunc(x: String, y: String) -> String{
     let con = min(x,y) + max(x,y)
     
     let hashed = SHA256.hash(data: con.hexa)

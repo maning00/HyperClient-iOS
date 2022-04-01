@@ -20,6 +20,7 @@ struct CreateEntryView: View {
     @State var parameters: String = ""
     @State var details: String = ""
     @State var attachment: String = ""
+    @State var offset: Int32
     
     var body: some View {
         NavigationView {
@@ -55,7 +56,8 @@ struct CreateEntryView: View {
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button("提交") {
-                            clientVM.submitData(name: name, timestamp: time, author: author, email: email, institution: institution, environment: environment, parameters: parameters, details: details, attachment: attachment)
+                            clientVM.submitData(name: name, timestamp: time, author: author, email: email, institution: institution, environment: environment, parameters: parameters, details: details, attachment: attachment, offset: offset)
+                            dissmiss()
                         }
                     }
                     ToolbarItem(placement: .navigationBarLeading) {
@@ -71,6 +73,6 @@ struct CreateEntryView: View {
 
 struct CreateEntryView_Previews: PreviewProvider {
     static var previews: some View {
-        CreateEntryView(clientVM: ClientViewModel())
+        CreateEntryView(clientVM: ClientViewModel(), offset: -1)
     }
 }

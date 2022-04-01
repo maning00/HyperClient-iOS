@@ -19,7 +19,7 @@ struct ContentView: View {
                 List {
                     Section {
                         VStack {
-                            Text("🙋🏻‍♀️").font(.system(size: 80)).frame(width:300, height: 90)
+                            Text("👨🏻‍💻").font(.system(size: 80)).frame(width:300, height: 90)
                             Text("欢迎你，\(authentication.credentials.username)").font(.title).fontWeight(.bold).multilineTextAlignment(.center).frame(width:300, height: 50)
                         }
                     }
@@ -33,7 +33,7 @@ struct ContentView: View {
                         if let rawData = document.rawData {
                             ForEach(rawData, id:\.self) { pair in
                                 NavigationLink {
-                                    DataDetail(dataPair: pair)
+                                    DataDetail(dataPair: pair).environmentObject(document)
                                 } label: {
                                     Text(pair.data.name)
                                 }
@@ -52,7 +52,7 @@ struct ContentView: View {
                     }
                 }
                 .popover(isPresented: $showSubmitForm) {
-                    CreateEntryView(clientVM: document)
+                    CreateEntryView(clientVM: document, offset: -1)
                 }
         }.navigationViewStyle(StackNavigationViewStyle())
     }

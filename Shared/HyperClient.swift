@@ -24,6 +24,7 @@ struct Entry: Codable, Hashable {
     var details: String
     var attachment: String
     var hash: String
+    var offset: Int32
     
     public func calHash() -> String {
         let data = "\(self.name)\(self.timestamp)\(self.author)\(self.email)\(self.institution)\(self.environment)\(self.parameters)\(self.details)\(self.attachment)".data(using: .utf8)!
@@ -37,12 +38,25 @@ struct AuthenticResponse: Codable, Hashable {
     let timestamp: String
     let item: String
     let proof: [String]
-    let result: Bool
+    var result: Bool
+    
+    mutating func verify() {
+        var acc = proof[0]
+        for val in proof[1..<proof.endIndex] {
+            acc = hashFunc(x: acc, y: val)
+        }
+        
+        result = (acc == timestamp)
+    }
 }
 
 struct ResponsePair: Codable, Hashable {
     let data: Entry
-    let authentication: AuthenticResponse
+    var authentication: AuthenticResponse
+    
+    mutating func verify() {
+        authentication.verify()
+    }
 }
 
 struct HyperClient {
