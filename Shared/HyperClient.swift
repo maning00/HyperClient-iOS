@@ -76,7 +76,7 @@ struct HyperClient {
         }
     }
     
-
+    
     public func fetchData() async -> [ResponsePair] {
         /**
          Request (3)
@@ -87,22 +87,22 @@ struct HyperClient {
         let headers: HTTPHeaders = [
             "Content-Type":"application/json; charset=utf-8"
         ]
-
+        
         // JSON Body
         let body: [String : Any] = [
             "table_name": "diva@testnet.ustb.edu"
         ]
-
+        
         // Fetch Request
         let dataTask = AF.request("http://192.168.31.125:5000/api/v1/get_data", method: .post, parameters: body, encoding: JSONEncoding.default, headers: headers)
             .validate(statusCode: 200..<300)
             .serializingDecodable([ResponsePair].self)
         let response = await dataTask.response.result
         switch response {
-            case .success(let responsePairs):
-                experimentalData.append(contentsOf: responsePairs)
-            case .failure(let error):
-                logger.error("\(error.localizedDescription)")
+        case .success(let responsePairs):
+            experimentalData.append(contentsOf: responsePairs)
+        case .failure(let error):
+            logger.error("\(error.localizedDescription)")
             
         }
         
@@ -114,12 +114,12 @@ struct HyperClient {
         let headers: HTTPHeaders = [
             "Content-Type":"application/json; charset=utf-8",
         ]
-
+        
         // JSON Body
         let body: [String : Any] = [
             "data": data.dictionary
         ]
-
+        
         // Fetch Request
         AF.request("http://192.168.31.125:5000/api/v1/insert?height=1", method: .post, parameters: body, encoding: JSONEncoding.default, headers: headers)
             .validate(statusCode: 200..<300)
@@ -127,5 +127,24 @@ struct HyperClient {
                 debugPrint(response)
             }
     }
-
+    
+    public func uploadData(data: Data, completion: @escaping(@MainActor (String?) -> Void)) async {
+        var returnVal: String? = nil
+        
+        
+        let dataTask = AF.upload(multipartFormData: { (multipartFormData) in
+            multipartFormData.append(data, withName: "file", fileName: "\(UUID().uuidString).jpeg", mimeType: "image/png")
+        }, to: "http://192.168.31.125:5000/api/v1/upload").validate(statusCode: 200..<300).serializingDecodable([String:String].self)
+        let response = await dataTask.response.result
+        switch response {
+        case .success(let response):
+            debugPrint(response)
+            returnVal = "https://ipfs.io/ipfs/" + response["hash"]!
+            await completion(returnVal)
+        case .failure(let error):
+            logger.error("\(error.localizedDescription)")
+            await completion(nil)
+        }
+    }
+    
 }

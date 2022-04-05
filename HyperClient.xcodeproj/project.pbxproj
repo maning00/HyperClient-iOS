@@ -15,13 +15,15 @@
 		E33D510827EDAB18005A5379 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E33D50F527EDAB18005A5379 /* Assets.xcassets */; };
 		E364C80327F5549900CF1B74 /* CreateEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E364C80227F5549900CF1B74 /* CreateEntryView.swift */; };
 		E364C80427F5549900CF1B74 /* CreateEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E364C80227F5549900CF1B74 /* CreateEntryView.swift */; };
+		E36528BD27F94A4E00EEF0E4 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E36528BC27F94A4E00EEF0E4 /* Alamofire */; };
+		E36528C027F94B7100EEF0E4 /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = E36528BF27F94B7100EEF0E4 /* Logging */; };
+		E36528C227FA817E00EEF0E4 /* ImageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36528C127FA817E00EEF0E4 /* ImageHandler.swift */; };
+		E36528C327FA817E00EEF0E4 /* ImageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36528C127FA817E00EEF0E4 /* ImageHandler.swift */; };
 		E368D04827F3265600D2CD46 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = E368D04727F3265600D2CD46 /* Utility.swift */; };
 		E368D04927F3265600D2CD46 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = E368D04727F3265600D2CD46 /* Utility.swift */; };
-		E368D04C27F33EFF00D2CD46 /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = E368D04B27F33EFF00D2CD46 /* Logging */; };
 		E368D04E27F3525C00D2CD46 /* ClientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E368D04D27F3525C00D2CD46 /* ClientViewModel.swift */; };
 		E368D04F27F3525C00D2CD46 /* ClientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E368D04D27F3525C00D2CD46 /* ClientViewModel.swift */; };
 		E368D05C27F45A6100D2CD46 /* DataDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E368D05B27F45A6100D2CD46 /* DataDetailView.swift */; };
-		E3B9234827F18B820098FAED /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E3B9234727F18B820098FAED /* Alamofire */; };
 		E3B9234D27F191020098FAED /* HyperClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B9234C27F191020098FAED /* HyperClient.swift */; };
 		E3B9234E27F191020098FAED /* HyperClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B9234C27F191020098FAED /* HyperClient.swift */; };
 		E3B9235327F192060098FAED /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B9235227F192060098FAED /* LoginView.swift */; };
@@ -37,6 +39,7 @@
 		E33D50FA27EDAB18005A5379 /* HyperClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HyperClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E33D510027EDAB18005A5379 /* HyperClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HyperClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E364C80227F5549900CF1B74 /* CreateEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEntryView.swift; sourceTree = "<group>"; };
+		E36528C127FA817E00EEF0E4 /* ImageHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHandler.swift; sourceTree = "<group>"; };
 		E368D04727F3265600D2CD46 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		E368D04D27F3525C00D2CD46 /* ClientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientViewModel.swift; sourceTree = "<group>"; };
 		E368D05B27F45A6100D2CD46 /* DataDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDetailView.swift; sourceTree = "<group>"; };
@@ -50,8 +53,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E368D04C27F33EFF00D2CD46 /* Logging in Frameworks */,
-				E3B9234827F18B820098FAED /* Alamofire in Frameworks */,
+				E36528C027F94B7100EEF0E4 /* Logging in Frameworks */,
+				E36528BD27F94A4E00EEF0E4 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +89,7 @@
 				E3B9234C27F191020098FAED /* HyperClient.swift */,
 				E3B9235527F19D250098FAED /* Authentication.swift */,
 				E368D04727F3265600D2CD46 /* Utility.swift */,
+				E36528C127FA817E00EEF0E4 /* ImageHandler.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -116,8 +120,8 @@
 			);
 			name = "HyperClient (iOS)";
 			packageProductDependencies = (
-				E3B9234727F18B820098FAED /* Alamofire */,
-				E368D04B27F33EFF00D2CD46 /* Logging */,
+				E36528BC27F94A4E00EEF0E4 /* Alamofire */,
+				E36528BF27F94B7100EEF0E4 /* Logging */,
 			);
 			productName = "HyperClient (iOS)";
 			productReference = E33D50FA27EDAB18005A5379 /* HyperClient.app */;
@@ -168,8 +172,8 @@
 			);
 			mainGroup = E33D50ED27EDAB17005A5379;
 			packageReferences = (
-				E3B9234627F18B820098FAED /* XCRemoteSwiftPackageReference "Alamofire" */,
-				E368D04A27F33EFF00D2CD46 /* XCRemoteSwiftPackageReference "swift-log" */,
+				E36528BB27F94A4E00EEF0E4 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				E36528BE27F94B7100EEF0E4 /* XCRemoteSwiftPackageReference "swift-log" */,
 			);
 			productRefGroup = E33D50FB27EDAB18005A5379 /* Products */;
 			projectDirPath = "";
@@ -205,6 +209,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E36528C227FA817E00EEF0E4 /* ImageHandler.swift in Sources */,
 				E368D04827F3265600D2CD46 /* Utility.swift in Sources */,
 				E33D510527EDAB18005A5379 /* ClientView.swift in Sources */,
 				E33D510327EDAB18005A5379 /* HyperClientApp.swift in Sources */,
@@ -228,6 +233,7 @@
 				E368D04F27F3525C00D2CD46 /* ClientViewModel.swift in Sources */,
 				E3B9235427F192060098FAED /* LoginView.swift in Sources */,
 				E3B9234E27F191020098FAED /* HyperClient.swift in Sources */,
+				E36528C327FA817E00EEF0E4 /* ImageHandler.swift in Sources */,
 				E3B9235727F19D250098FAED /* Authentication.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -354,7 +360,9 @@
 				DEVELOPMENT_TEAM = ZRZ8BS7EUF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "使用相机获取照片";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "使用Face ID进行登录";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "访问相册获取照片";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -385,7 +393,9 @@
 				DEVELOPMENT_TEAM = ZRZ8BS7EUF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "使用相机获取照片";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "使用Face ID进行登录";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "访问相册获取照片";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -496,15 +506,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		E368D04A27F33EFF00D2CD46 /* XCRemoteSwiftPackageReference "swift-log" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/apple/swift-log";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
-		E3B9234627F18B820098FAED /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+		E36528BB27F94A4E00EEF0E4 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
 			requirement = {
@@ -512,18 +514,26 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		E36528BE27F94B7100EEF0E4 /* XCRemoteSwiftPackageReference "swift-log" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-log";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		E368D04B27F33EFF00D2CD46 /* Logging */ = {
+		E36528BC27F94A4E00EEF0E4 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = E368D04A27F33EFF00D2CD46 /* XCRemoteSwiftPackageReference "swift-log" */;
-			productName = Logging;
-		};
-		E3B9234727F18B820098FAED /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E3B9234627F18B820098FAED /* XCRemoteSwiftPackageReference "Alamofire" */;
+			package = E36528BB27F94A4E00EEF0E4 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		E36528BF27F94B7100EEF0E4 /* Logging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E36528BE27F94B7100EEF0E4 /* XCRemoteSwiftPackageReference "swift-log" */;
+			productName = Logging;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

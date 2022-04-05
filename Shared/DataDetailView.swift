@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DataDetail: View {
-    var dataPair: ResponsePair
+    @State var dataPair: ResponsePair
     @State var showEditor = false
     @Environment(\.dismiss) var dissmiss
     @EnvironmentObject var clientVM: ClientViewModel
@@ -50,7 +50,7 @@ struct DataDetail: View {
                 }
                 
                 Section("数据验证结果") {
-                    dataPair.authentication.result == true ? Image(systemName: "checkmark.circle").foregroundColor(.green) : Image(systemName: "xmark.circle").foregroundColor(.red)
+                    dataPair.authentication.result == true ? Image(systemName: "checkmark.circle").font(.system(size: 40)).foregroundColor(.green) : Image(systemName: "xmark.circle").font(.system(size: 40)).foregroundColor(.red)
                 }
             }
         }.toolbar {
@@ -59,7 +59,10 @@ struct DataDetail: View {
                     showEditor = true
                 }
             }
-        }.popover(isPresented: $showEditor) {
+        }.task {
+            dataPair.verify()
+        }
+        .popover(isPresented: $showEditor) {
             CreateEntryView(clientVM: clientVM, name: dataPair.data.name, time: Date(timeIntervalSince1970: dataPair.data.timestamp), author: dataPair.data.author, email: dataPair.data.email, institution: dataPair.data.institution, environment: dataPair.data.environment, parameters: dataPair.data.parameters, details: dataPair.data.details, attachment: dataPair.data.attachment, offset: dataPair.data.offset)
         }
     }

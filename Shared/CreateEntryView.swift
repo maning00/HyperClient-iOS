@@ -11,6 +11,7 @@ struct CreateEntryView: View {
     @ObservedObject var clientVM: ClientViewModel
     @Environment(\.dismiss) var dissmiss
     
+    @State private var imagePicker: ImagePickerType? = nil
     @State var name: String = ""
     @State var time = Date.now
     @State var author: String = ""
@@ -50,13 +51,15 @@ struct CreateEntryView: View {
                     TextField("实验详细信息", text: $details)
                 }
                 Section("附件") {
-                    TextField("附件", text: $attachment)
+                    attachmentSection
                 }
             }.navigationTitle("提交数据")
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button("提交") {
-                            clientVM.submitData(name: name, timestamp: time, author: author, email: email, institution: institution, environment: environment, parameters: parameters, details: details, attachment: attachment, offset: offset)
+                            Task {
+                                await clientVM.submitData(name: name, timestamp: time, author: author, email: email, institution: institution, environment: environment, parameters: parameters, details: details, offset: offset)
+                            }
                             dissmiss()
                         }
                     }
@@ -66,8 +69,55 @@ struct CreateEntryView: View {
                         }
                     }
                 }
-                
+            
         }.navigationViewStyle(StackNavigationViewStyle())
+    }
+    
+    private func handlePickedImage(_ image: UIImage?) {
+        logger.info("Function handlePickedImage catched image")
+        if let image = image {
+            clientVM.pickedImage.append(image)
+        }
+        imagePicker = nil
+    }
+    
+    var imagePickerMenu: some View {
+        Menu {
+            Button {
+                withAnimation {
+                    imagePicker = .camera
+                }
+            } label: {
+                Label("相机", systemImage: "camera")
+            }
+            Button {
+                withAnimation {
+                    imagePicker = .library
+                }
+            } label: {
+                Label("相簿", systemImage: "photo.on.rectangle")
+            }
+        } label: {
+            Label("", systemImage: "plus.circle").font(.system(size: 45))
+        }
+    }
+    
+    var attachmentSection: some View {
+        LazyVGrid(columns: [GridItem(.adaptive(minimum: 80))]) {
+            imagePickerMenu
+            ForEach(clientVM.pickedImage, id: \.self) { data in
+                Image(uiImage: data)
+                    .resizable()
+                    .frame(maxWidth: 80, maxHeight: 80)
+            }
+        }.sheet(item: $imagePicker) { pickerType in
+            switch pickerType {
+            case .camera:
+                Camera(imageHandleFunc: handlePickedImage)
+            case .library:
+                ImagePicker(imageHandleFunc: handlePickedImage)
+            }
+        }
     }
 }
 
