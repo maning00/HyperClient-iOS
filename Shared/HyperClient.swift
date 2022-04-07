@@ -64,7 +64,7 @@ struct HyperClient {
     
     
     public func login(credentials: Credentials, completion: @escaping (Result<Bool, Authentication.AuthenticationError>) -> Void) {
-        AF.request("http://192.168.31.125:5000/api/v1/login", method: .post).validate().responseDecodable(of: [String:String].self) { response in
+        AF.request("http://10.25.127.19:5000/api/v1/login", method: .post).validate().responseDecodable(of: [String:String].self) { response in
             if let response = response.value {
                 if response["result"] == "OK" {
                     completion(.success(true))
@@ -94,7 +94,7 @@ struct HyperClient {
         ]
         
         // Fetch Request
-        let dataTask = AF.request("http://192.168.31.125:5000/api/v1/get_data", method: .post, parameters: body, encoding: JSONEncoding.default, headers: headers)
+        let dataTask = AF.request("http://10.25.127.19:5000/api/v1/get_data", method: .post, parameters: body, encoding: JSONEncoding.default, headers: headers)
             .validate(statusCode: 200..<300)
             .serializingDecodable([ResponsePair].self)
         let response = await dataTask.response.result
@@ -121,7 +121,7 @@ struct HyperClient {
         ]
         
         // Fetch Request
-        AF.request("http://192.168.31.125:5000/api/v1/insert?height=1", method: .post, parameters: body, encoding: JSONEncoding.default, headers: headers)
+        AF.request("http://10.25.127.19:5000/api/v1/insert?height=1", method: .post, parameters: body, encoding: JSONEncoding.default, headers: headers)
             .validate(statusCode: 200..<300)
             .response { response in
                 debugPrint(response)
@@ -134,7 +134,7 @@ struct HyperClient {
         
         let dataTask = AF.upload(multipartFormData: { (multipartFormData) in
             multipartFormData.append(data, withName: "file", fileName: "\(UUID().uuidString).jpeg", mimeType: "image/png")
-        }, to: "http://192.168.31.125:5000/api/v1/upload").validate(statusCode: 200..<300).serializingDecodable([String:String].self)
+        }, to: "http://10.25.127.19:5000/api/v1/upload").validate(statusCode: 200..<300).serializingDecodable([String:String].self)
         let response = await dataTask.response.result
         switch response {
         case .success(let response):

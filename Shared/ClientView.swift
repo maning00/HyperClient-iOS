@@ -51,10 +51,11 @@ struct ContentView: View {
                         }
                     }
                 }
-                .popover(isPresented: $showSubmitForm) {
-                    CreateEntryView(clientVM: document, offset: -1)
-                }
+            
         }.navigationViewStyle(StackNavigationViewStyle())
+            .sheet(isPresented: $showSubmitForm) {
+                CreateEntryView(clientVM: document, offset: -1)
+            }
     }
 }
 

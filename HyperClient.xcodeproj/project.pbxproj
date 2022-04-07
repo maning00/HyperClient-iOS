@@ -24,6 +24,7 @@
 		E368D04E27F3525C00D2CD46 /* ClientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E368D04D27F3525C00D2CD46 /* ClientViewModel.swift */; };
 		E368D04F27F3525C00D2CD46 /* ClientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E368D04D27F3525C00D2CD46 /* ClientViewModel.swift */; };
 		E368D05C27F45A6100D2CD46 /* DataDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E368D05B27F45A6100D2CD46 /* DataDetailView.swift */; };
+		E39F9DDD27FF166800E7F776 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E39F9DDC27FF166800E7F776 /* README.md */; };
 		E3B9234D27F191020098FAED /* HyperClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B9234C27F191020098FAED /* HyperClient.swift */; };
 		E3B9234E27F191020098FAED /* HyperClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B9234C27F191020098FAED /* HyperClient.swift */; };
 		E3B9235327F192060098FAED /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B9235227F192060098FAED /* LoginView.swift */; };
@@ -43,6 +44,7 @@
 		E368D04727F3265600D2CD46 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		E368D04D27F3525C00D2CD46 /* ClientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientViewModel.swift; sourceTree = "<group>"; };
 		E368D05B27F45A6100D2CD46 /* DataDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDetailView.swift; sourceTree = "<group>"; };
+		E39F9DDC27FF166800E7F776 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E3B9234C27F191020098FAED /* HyperClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HyperClient.swift; sourceTree = "<group>"; };
 		E3B9235227F192060098FAED /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		E3B9235527F19D250098FAED /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				E3B9235527F19D250098FAED /* Authentication.swift */,
 				E368D04727F3265600D2CD46 /* Utility.swift */,
 				E36528C127FA817E00EEF0E4 /* ImageHandler.swift */,
+				E39F9DDC27FF166800E7F776 /* README.md */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -190,6 +193,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E39F9DDD27FF166800E7F776 /* README.md in Resources */,
 				E33D510727EDAB18005A5379 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
