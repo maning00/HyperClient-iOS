@@ -41,9 +41,11 @@ struct ContentView: View {
                             }
                         }
                     }
+                }.refreshable {
+                    await document.fetchData()
                 }
-            }.navigationTitle(Text("HyperClient"))
                 .task { await document.fetchData() }
+            }.navigationTitle(Text("HyperClient"))
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button("注销") {

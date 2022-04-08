@@ -59,12 +59,16 @@ struct CreateEntryView: View {
                         Button("提交") {
                             Task {
                                 await clientVM.submitData(name: name, timestamp: time, author: author, email: email, institution: institution, environment: environment, parameters: parameters, details: details, offset: offset)
+                                await clientVM.fetchData()
                             }
                             dissmiss()
                         }
                     }
                     ToolbarItem(placement: .navigationBarLeading) {
                         Button("取消") {
+                            Task {
+                                await clientVM.fetchData()
+                            }
                             dissmiss()
                         }
                     }
