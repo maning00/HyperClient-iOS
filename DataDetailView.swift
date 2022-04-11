@@ -41,7 +41,11 @@ struct DataDetail: View {
                     Text(dataPair.data.details)
                 }
                 Section("附件") {
-                    Text(dataPair.data.attachment)
+                    ForEach(dataPair.data.attachment.components(separatedBy: " "), id: \.self) { str in
+                        Text(str).onTapGesture {
+                            UIApplication.shared.open(URL(string: str.trimmingCharacters(in: .whitespacesAndNewlines))!)
+                        }.foregroundColor(.accentColor)
+                    }
                 }
             }
             Group {

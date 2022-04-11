@@ -128,19 +128,34 @@ struct HyperClient {
             }
     }
     
-    public func uploadData(data: Data, completion: @escaping(@MainActor (String?) -> Void)) async {
+    public func uploadIPFS(data: Data, completion: @escaping(@MainActor (String?) -> Void)) async {
         var returnVal: String? = nil
         
         
         let dataTask = AF.upload(multipartFormData: { (multipartFormData) in
             multipartFormData.append(data, withName: "file", fileName: "\(UUID().uuidString).jpeg", mimeType: "image/png")
-        }, to: "http://10.25.127.19:5000/api/v1/upload").validate(statusCode: 200..<300).serializingDecodable([String:String].self)
+        }, to: "http://10.25.127.19:5000/api/v1/upload_ipfs").validate(statusCode: 200..<300).serializingDecodable([String:String].self)
         let response = await dataTask.response.result
         switch response {
         case .success(let response):
             debugPrint(response)
             returnVal = "https://ipfs.io/ipfs/" + response["hash"]!
             await completion(returnVal)
+        case .failure(let error):
+            logger.error("\(error.localizedDescription)")
+            await completion(nil)
+        }
+    }
+    
+    public func uploadCloud(data: Data, completion: @escaping(@MainActor (String?) -> Void)) async {
+        let dataTask = AF.upload(multipartFormData: { (multipartFormData) in
+            multipartFormData.append(data, withName: "file", fileName: "\(UUID().uuidString).jpeg", mimeType: "image/png")
+        }, to: "http://10.25.127.19:5000/api/v1/upload_cloud").validate(statusCode: 200..<300).serializingDecodable([String:String].self)
+        let response = await dataTask.response.result
+        switch response {
+        case .success(let response):
+            debugPrint(response)
+            await completion(response["link"])
         case .failure(let error):
             logger.error("\(error.localizedDescription)")
             await completion(nil)

@@ -18,9 +18,13 @@ struct ContentView: View {
                 
                 List {
                     Section {
-                        VStack {
-                            Text("👨🏻‍💻").font(.system(size: 80)).frame(width:300, height: 90)
-                            Text("欢迎你，\(authentication.credentials.username)").font(.title).fontWeight(.bold).multilineTextAlignment(.center).frame(width:300, height: 50)
+                        HStack {
+                            Spacer()
+                            VStack {
+                                Text("👨🏻‍💻").font(.system(size: 80)).frame(width:300, height: 90)
+                                Text("欢迎你，\(authentication.credentials.username)").font(.title).fontWeight(.bold).multilineTextAlignment(.center).frame(width:300, height: 50)
+                            }
+                            Spacer()
                         }
                     }
                     Section{

@@ -51,6 +51,16 @@ struct CreateEntryView: View {
                     TextField("实验详细信息", text: $details)
                 }
                 Section("附件") {
+                    Picker("存储位置", selection: $clientVM.uploadOption) {
+                        HStack {
+                            Image("ipfs-logo").resizable().frame(width: 30, height: 30)
+                            Text("IPFS")
+                        }.tag(UploadOptions.ipfs)
+                        HStack {
+                            Image("nextcloud-logo").resizable().frame(width: 30, height: 25)
+                            Text("NextCloud")
+                        }.tag(UploadOptions.cloud)
+                    }
                     attachmentSection
                 }
             }.navigationTitle("提交数据")
