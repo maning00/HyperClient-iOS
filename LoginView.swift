@@ -17,6 +17,8 @@ struct LoginView: View {
             Spacer()
             Image("ustblogo").resizable().frame(width: 200, height: 200)
                 .padding()
+            Image("iroha-logo").resizable().frame(width: 230, height: 45)
+                .padding()
             
                 TextField("用户名", text: $authentication.credentials.username)
                 SecureField("密码", text: $authentication.credentials.password)

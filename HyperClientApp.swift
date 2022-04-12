@@ -15,10 +15,10 @@ struct HyperClientApp: App {
         WindowGroup {
             if authentication.isValidated {
                 ContentView(document: document)
-                    .environmentObject(authentication)
+                    .environmentObject(authentication).preferredColorScheme(.light)
             } else {
                 LoginView(loginVM: document)
-                    .environmentObject(authentication)
+                    .environmentObject(authentication).preferredColorScheme(.light)
             }
         }
     }
