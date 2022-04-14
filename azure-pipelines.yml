@@ -4,17 +4,17 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/xcode
 
 trigger:
-- main
+  - main
 
 pool:
-  vmImage: 'macos-latest'
+  vmImage: "macos-latest"
 
 steps:
-- task: Xcode@5
-  inputs:
-    actions: 'build'
-    scheme: 'HyperClient (iOS)'
-    sdk: 'iphoneos'
-    configuration: 'Release'
-    xcWorkspacePath: '**/*.xcodeproj/project.xcworkspace'
-    xcodeVersion: '13' # Options: 8, 9, 10, 11, 12, default, specifyPath
+  - task: Xcode@5
+    inputs:
+      actions: "build"
+      scheme: "HyperClient (iOS)"
+      sdk: "iphoneos"
+      configuration: "Release"
+      xcWorkspacePath: "**/*.xcodeproj/project.xcworkspace"
+      xcodeVersion: "13" # Options: 8, 9, 10, 11, 12, default, specifyPath
