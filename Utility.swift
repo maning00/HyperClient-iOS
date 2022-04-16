@@ -25,6 +25,16 @@ extension DataProtocol {
     var hexa: String { map { .init(format: "%02x", $0) }.joined() }
 }
 
+extension Double {
+    var toDate: String {
+        let RFC3339DateFormatter = DateFormatter()
+        RFC3339DateFormatter.locale = Locale(identifier: "zh_CN_POSIX")
+        RFC3339DateFormatter.dateFormat = "yyyy-MM-dd' 'HH:mm:ss"
+        
+        return RFC3339DateFormatter.string(from: Date(timeIntervalSince1970: self))
+    }
+}
+
 
 struct JSON {
     static let encoder = JSONEncoder()

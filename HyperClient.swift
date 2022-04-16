@@ -15,7 +15,7 @@ let logger = Logger(label: "HyperClient")
 struct Entry: Codable, Hashable {
     var id: UInt32
     var name: String
-    var timestamp: Double
+    var experiment_time: Double
     var author: String
     var email: String
     var institution: String
@@ -25,9 +25,10 @@ struct Entry: Codable, Hashable {
     var attachment: String
     var hash: String
     var offset: Int32
+    var timestamp: Double
     
     public func calHash() -> String {
-        let data = "\(self.name)\(self.timestamp)\(self.author)\(self.email)\(self.institution)\(self.environment)\(self.parameters)\(self.details)\(self.attachment)".data(using: .utf8)!
+        let data = "\(self.name)\(self.experiment_time)\(self.author)\(self.email)\(self.institution)\(self.environment)\(self.parameters)\(self.details)\(self.attachment)\(self.timestamp)".data(using: .utf8)!
         let hash = SHA256.hash(data: data)
         return hash.compactMap { String(format: "%02hhx", $0) }.joined()
     }
@@ -80,7 +81,7 @@ struct HyperClient {
     public func fetchData() async -> [ResponsePair] {
         /**
          Request (3)
-         post http://192.168.31.125:5000/api/v1/get_data
+         post /api/v1/get_data
          */
         var experimentalData = [ResponsePair]()
         // Add Headers
@@ -95,6 +96,39 @@ struct HyperClient {
         
         // Fetch Request
         let dataTask = AF.request("http://10.25.127.19:5000/api/v1/get_data", method: .post, parameters: body, encoding: JSONEncoding.default, headers: headers)
+            .validate(statusCode: 200..<300)
+            .serializingDecodable([ResponsePair].self)
+        let response = await dataTask.response.result
+        switch response {
+        case .success(let responsePairs):
+            experimentalData.append(contentsOf: responsePairs)
+        case .failure(let error):
+            logger.error("\(error.localizedDescription)")
+            
+        }
+        
+        return experimentalData
+    }
+    
+    public func fetchHistory(id: UInt32) async -> [ResponsePair] {
+        /**
+         Request (3)
+         post /api/v1/get_history
+         */
+        var experimentalData = [ResponsePair]()
+        // Add Headers
+        let headers: HTTPHeaders = [
+            "Content-Type":"application/json; charset=utf-8"
+        ]
+        
+        // JSON Body
+        let body: [String : Any] = [
+            "table_name": "diva@testnet.ustb.edu",
+            "id": String(id)
+        ]
+        
+        // Fetch Request
+        let dataTask = AF.request("http://10.25.127.19:5000/api/v1/get_history", method: .post, parameters: body, encoding: JSONEncoding.default, headers: headers)
             .validate(statusCode: 200..<300)
             .serializingDecodable([ResponsePair].self)
         let response = await dataTask.response.result

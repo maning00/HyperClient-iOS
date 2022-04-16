@@ -15,8 +15,8 @@ enum UploadOptions: Identifiable {
 class ClientViewModel: ObservableObject {
     @Published var showProgressView = false
     @Published var rawData: [ResponsePair]?
+    @Published var history: [ResponsePair]?
     @Published var pickedImage = [UIImage]()
-    
     
     @Published var uploadOption:UploadOptions = .ipfs
     
@@ -28,11 +28,15 @@ class ClientViewModel: ObservableObject {
         rawData = await HyperClient.shared.fetchData()
     }
     
+    @MainActor func fetchHistory(id: UInt32) async {
+        history = await HyperClient.shared.fetchHistory(id: id)
+    }
+    
     @MainActor
-    public func submitData(name: String, timestamp: Date, author: String, email: String, institution: String,
+    public func submitData(name: String, experimentTime: Date, author: String, email: String, institution: String,
                            environment:String, parameters:String, details: String, offset: Int32) async {
         // convert Date to timestamp String
-        let timestampString = Double(timestamp.timeIntervalSince1970)
+        let experimentTimeString = Double(experimentTime.timeIntervalSince1970)
         var attachmentURL = ""
         
         func completion(url: String?) {
@@ -56,7 +60,7 @@ class ClientViewModel: ObservableObject {
             pickedImage.removeAll()
         }
         
-        let entry = Entry(id: 1, name: name, timestamp: timestampString, author: author, email: email, institution: institution, environment: environment, parameters: parameters, details: details, attachment: attachmentURL, hash: "", offset: offset)
+        let entry = Entry(id: 1, name: name, experiment_time: experimentTimeString, author: author, email: email, institution: institution, environment: environment, parameters: parameters, details: details, attachment: attachmentURL, hash: "", offset: offset, timestamp: 0)
         
         HyperClient.shared.insertData(data: entry)
     }

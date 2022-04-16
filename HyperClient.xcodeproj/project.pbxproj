@@ -12,12 +12,13 @@
 		E33D510727EDAB18005A5379 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E33D50F527EDAB18005A5379 /* Assets.xcassets */; };
 		E33D510827EDAB18005A5379 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E33D50F527EDAB18005A5379 /* Assets.xcassets */; };
 		E364C80327F5549900CF1B74 /* CreateEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E364C80227F5549900CF1B74 /* CreateEntryView.swift */; };
-		E36528BD27F94A4E00EEF0E4 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E36528BC27F94A4E00EEF0E4 /* Alamofire */; };
-		E36528C027F94B7100EEF0E4 /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = E36528BF27F94B7100EEF0E4 /* Logging */; };
 		E36528C227FA817E00EEF0E4 /* ImageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36528C127FA817E00EEF0E4 /* ImageHandler.swift */; };
 		E368D04827F3265600D2CD46 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = E368D04727F3265600D2CD46 /* Utility.swift */; };
 		E368D04E27F3525C00D2CD46 /* ClientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E368D04D27F3525C00D2CD46 /* ClientViewModel.swift */; };
 		E368D05C27F45A6100D2CD46 /* DataDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E368D05B27F45A6100D2CD46 /* DataDetailView.swift */; };
+		E3800AFC280A56840040873D /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = E3800AFB280A56840040873D /* Logging */; };
+		E3800AFF280A56920040873D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E3800AFE280A56920040873D /* Alamofire */; };
+		E3800B01280A6D3E0040873D /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3800B00280A6D3E0040873D /* HistoryView.swift */; };
 		E39F9DDD27FF166800E7F776 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E39F9DDC27FF166800E7F776 /* README.md */; };
 		E3B9234D27F191020098FAED /* HyperClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B9234C27F191020098FAED /* HyperClient.swift */; };
 		E3B9235327F192060098FAED /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B9235227F192060098FAED /* LoginView.swift */; };
@@ -35,6 +36,7 @@
 		E368D04727F3265600D2CD46 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		E368D04D27F3525C00D2CD46 /* ClientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientViewModel.swift; sourceTree = "<group>"; };
 		E368D05B27F45A6100D2CD46 /* DataDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDetailView.swift; sourceTree = "<group>"; };
+		E3800B00280A6D3E0040873D /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		E39F9DDC27FF166800E7F776 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E3B9234C27F191020098FAED /* HyperClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HyperClient.swift; sourceTree = "<group>"; };
 		E3B9235227F192060098FAED /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -46,8 +48,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E36528C027F94B7100EEF0E4 /* Logging in Frameworks */,
-				E36528BD27F94A4E00EEF0E4 /* Alamofire in Frameworks */,
+				E3800AFC280A56840040873D /* Logging in Frameworks */,
+				E3800AFF280A56920040873D /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,6 +69,7 @@
 				E39F9DDC27FF166800E7F776 /* README.md */,
 				E33D50F327EDAB18005A5379 /* HyperClientApp.swift */,
 				E33D50F427EDAB18005A5379 /* ClientView.swift */,
+				E3800B00280A6D3E0040873D /* HistoryView.swift */,
 				E364C80227F5549900CF1B74 /* CreateEntryView.swift */,
 				E368D05B27F45A6100D2CD46 /* DataDetailView.swift */,
 				E368D04D27F3525C00D2CD46 /* ClientViewModel.swift */,
@@ -106,8 +109,8 @@
 			);
 			name = "HyperClient (iOS)";
 			packageProductDependencies = (
-				E36528BC27F94A4E00EEF0E4 /* Alamofire */,
-				E36528BF27F94B7100EEF0E4 /* Logging */,
+				E3800AFB280A56840040873D /* Logging */,
+				E3800AFE280A56920040873D /* Alamofire */,
 			);
 			productName = "HyperClient (iOS)";
 			productReference = E33D50FA27EDAB18005A5379 /* HyperClient.app */;
@@ -158,8 +161,8 @@
 			);
 			mainGroup = E33D50ED27EDAB17005A5379;
 			packageReferences = (
-				E36528BB27F94A4E00EEF0E4 /* XCRemoteSwiftPackageReference "Alamofire" */,
-				E36528BE27F94B7100EEF0E4 /* XCRemoteSwiftPackageReference "swift-log" */,
+				E3800AFA280A56840040873D /* XCRemoteSwiftPackageReference "swift-log" */,
+				E3800AFD280A56920040873D /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = E33D50FB27EDAB18005A5379 /* Products */;
 			projectDirPath = "";
@@ -201,6 +204,7 @@
 				E33D510527EDAB18005A5379 /* ClientView.swift in Sources */,
 				E33D510327EDAB18005A5379 /* HyperClientApp.swift in Sources */,
 				E368D04E27F3525C00D2CD46 /* ClientViewModel.swift in Sources */,
+				E3800B01280A6D3E0040873D /* HistoryView.swift in Sources */,
 				E3B9235327F192060098FAED /* LoginView.swift in Sources */,
 				E364C80327F5549900CF1B74 /* CreateEntryView.swift in Sources */,
 				E3B9234D27F191020098FAED /* HyperClient.swift in Sources */,
@@ -484,15 +488,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		E36528BB27F94A4E00EEF0E4 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
-		E36528BE27F94B7100EEF0E4 /* XCRemoteSwiftPackageReference "swift-log" */ = {
+		E3800AFA280A56840040873D /* XCRemoteSwiftPackageReference "swift-log" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/apple/swift-log";
 			requirement = {
@@ -500,18 +496,26 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		E3800AFD280A56920040873D /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		E36528BC27F94A4E00EEF0E4 /* Alamofire */ = {
+		E3800AFB280A56840040873D /* Logging */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = E36528BB27F94A4E00EEF0E4 /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
-		};
-		E36528BF27F94B7100EEF0E4 /* Logging */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E36528BE27F94B7100EEF0E4 /* XCRemoteSwiftPackageReference "swift-log" */;
+			package = E3800AFA280A56840040873D /* XCRemoteSwiftPackageReference "swift-log" */;
 			productName = Logging;
+		};
+		E3800AFE280A56920040873D /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E3800AFD280A56920040873D /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

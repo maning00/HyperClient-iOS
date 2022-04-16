@@ -1,17 +1,14 @@
 //
-//  DataDetailView.swift
+//  HistoryView.swift
 //  HyperClient (iOS)
 //
-//  Created by Niko Ma on 3/30/22.
+//  Created by Niko Ma on 4/16/22.
 //
 
 import SwiftUI
 
-struct DataDetail: View {
+struct HistoryView: View {
     @State var dataPair: ResponsePair
-    @State var showEditor = false
-    @Environment(\.dismiss) var dissmiss
-    @EnvironmentObject var clientVM: ClientViewModel
     
     var body: some View {
         List {
@@ -56,45 +53,10 @@ struct DataDetail: View {
                 Section("数据验证结果") {
                     dataPair.authentication.result == true ? Image(systemName: "checkmark.circle").font(.system(size: 40)).foregroundColor(.green) : Image(systemName: "xmark.circle").font(.system(size: 40)).foregroundColor(.red)
                 }
-                
-                NavigationLink {
-                    historyList().environmentObject(clientVM).task {
-                        await clientVM.fetchHistory(id: dataPair.data.id)
-                    }
-                } label: {
-                    Text("编辑历史")
-                }
-            }
-        }.toolbar {
-            ToolbarItem {
-                Button("编辑") {
-                    showEditor = true
-                }
-            }
-        }.task {
-            dataPair.verify()
-        }
-        .popover(isPresented: $showEditor) {
-            CreateEntryView(clientVM: clientVM, name: dataPair.data.name, time: Date(timeIntervalSince1970: dataPair.data.experiment_time), author: dataPair.data.author, email: dataPair.data.email, institution: dataPair.data.institution, environment: dataPair.data.environment, parameters: dataPair.data.parameters, details: dataPair.data.details, attachment: dataPair.data.attachment, offset: dataPair.data.offset)
-        }
-    }
-    
-    
-    struct historyList: View {
-        @EnvironmentObject var clientVM: ClientViewModel
-        var body: some View {
-            List {
-                if let history = clientVM.history {
-                    ForEach(history, id:\.self) { elem in
-                        NavigationLink {
-                            HistoryView(dataPair: elem)
-                        } label: {
-                            Text(elem.data.timestamp.toDate)
-                        }
-                    }
+                Section("提交时间") {
+                    Text(Date(timeIntervalSince1970: dataPair.data.timestamp).description(with: .current))
                 }
             }
         }
     }
 }
-
